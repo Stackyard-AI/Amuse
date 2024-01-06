@@ -190,6 +190,27 @@
             </Setter>
         </Style>
 
+
+        <Style x:Key="SideTabControl" TargetType="{x:Type TabControl}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabControl">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <UniformGrid Grid.Column="0" Columns="1" IsItemsHost="True" >
+                            </UniformGrid>
+                            <ContentPresenter Grid.Column="1" ContentSource="SelectedContent"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+           
+      
+        </Style>
+
         <Style TargetType="{x:Type userControls:FontAwesome}">
             <Setter Property="Color" Value="{StaticResource ControlDefaultForeground}" />
         </Style>
@@ -1414,7 +1435,7 @@
                                     <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
-                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,1"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -1424,7 +1445,7 @@
                                 <Setter Property="Panel.ZIndex" Value="1"/>
                                 <Setter Property="Margin" Value="-2,-2,0,-2"/>
                                 <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,0,0,4"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
